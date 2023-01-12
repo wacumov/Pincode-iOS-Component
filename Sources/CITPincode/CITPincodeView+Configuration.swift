@@ -70,6 +70,9 @@ extension CITPincodeView {
         /// If set to true, all pincode cells will always be shown as if they are selected.
         public var alwaysShowSelectedBorder: Bool
         
+        /// If set to true, a cell will be shown as selected only when there is a character inside.
+        public var selectFilledCells: Bool
+
         /// If set to true, the keyboard will show once the pincode view appears.
         public var showKeyboardOnAppear: Bool
         
@@ -141,6 +144,7 @@ extension CITPincodeView {
             selectedBorderColor: Color?                         = nil,
             selectedBorderWidth: CGFloat                        = 1,
             alwaysShowSelectedBorder: Bool                      = false,
+            selectFilledCells: Bool                             = false,
             showKeyboardOnAppear: Bool                          = true,
             keyboardDoneButtonText: String                      = "citpincode_keyboard_done_button_text".localized,
             cellSize: CGSize                                    = .init(width: 40, height: 56),
@@ -162,6 +166,7 @@ extension CITPincodeView {
             self.selectedBorderColor = selectedBorderColor ?? backgroundColor
             self.selectedBorderWidth = selectedBorderWidth
             self.alwaysShowSelectedBorder = alwaysShowSelectedBorder
+            self.selectFilledCells = selectFilledCells
             self.showKeyboardOnAppear = showKeyboardOnAppear
             self.keyboardDoneButtonText = keyboardDoneButtonText
             self.cellSize = cellSize
