@@ -77,7 +77,7 @@ public struct CITPincodeView: View {
                         config: config,
                         character: character(for: index),
                         placeholder: placeholder(for: index),
-                        isSelected: index == code.count,
+                        isSelected: config.selectFilledCells ? index < code.count : index == code.count,
                         hasError: hasError
                     )
                     
