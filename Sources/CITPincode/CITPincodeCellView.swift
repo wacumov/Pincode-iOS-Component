@@ -62,7 +62,11 @@ struct CITPincodeCellView: View {
     private var backgroundColor: Color {
         isSelected ? config.selectedBackgroundColor : config.backgroundColor
     }
-    
+
+    private var borderColor: Color {
+        hasError ? config.errorColor : config.borderColor
+    }
+
     private var selectedBorderColor: Color {
         hasError ? config.errorColor : config.selectedBorderColor
     }
@@ -88,8 +92,12 @@ struct CITPincodeCellView: View {
             .cornerRadius(cornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)
-                    .stroke(selectedBorderColor, lineWidth: isSelected || config.alwaysShowSelectedBorder ? config.selectedBorderWidth : 0)
+                    .stroke(isSelectedBorder ? selectedBorderColor : borderColor, lineWidth: isSelectedBorder ? config.selectedBorderWidth : 1)
             )
+    }
+
+    private var isSelectedBorder: Bool {
+        isSelected || config.alwaysShowSelectedBorder
     }
 }
 
