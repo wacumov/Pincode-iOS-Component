@@ -60,7 +60,10 @@ extension CITPincodeView {
         
         /// The background color of a pincode cell when it is currently selected, a cell is selected when that cell would be filled with the next entered pincode character.
         public var selectedBackgroundColor: Color
-        
+
+        /// The border color of pincode cells.
+        public var borderColor: Color
+
         /// The border color of any selected pincode cell.
         public var selectedBorderColor: Color
         
@@ -147,6 +150,7 @@ extension CITPincodeView {
             placeholderColor: Color?                            = nil,
             backgroundColor: Color                              = .init(white: 0.2),
             selectedBackgroundColor: Color?                     = nil,
+            borderColor: Color?                                 = nil,
             selectedBorderColor: Color?                         = nil,
             selectedBorderWidth: CGFloat                        = 1,
             alwaysShowSelectedBorder: Bool                      = false,
@@ -171,6 +175,7 @@ extension CITPincodeView {
             self.placeholderColor = placeholderColor ?? selectedBorderColor ?? textColor
             self.backgroundColor = backgroundColor
             self.selectedBackgroundColor = selectedBackgroundColor ?? backgroundColor
+            self.borderColor = borderColor ?? .clear
             self.selectedBorderColor = selectedBorderColor ?? backgroundColor
             self.selectedBorderWidth = selectedBorderWidth
             self.alwaysShowSelectedBorder = alwaysShowSelectedBorder
