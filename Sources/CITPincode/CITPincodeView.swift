@@ -132,6 +132,11 @@ public struct CITPincodeView: View {
                 error = nil
             }
         }
+        .onAppear {
+            if config.showKeyboardOnAppear {
+                codeInputField?.becomeFirstResponder()
+            }
+        }
     }
     
     private func setupPasteOnlyTextField(_ textField: UITextField) {
